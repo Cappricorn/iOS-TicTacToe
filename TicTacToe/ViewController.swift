@@ -13,19 +13,23 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        buttonList.append(namebutton11)
+        buttonList.append(namebutton12)
+        buttonList.append(namebutton13)
+        buttonList.append(namebutton21)
+        buttonList.append(namebutton22)
+        buttonList.append(namebutton23)
+        buttonList.append(namebutton31)
+        buttonList.append(namebutton32)
+        buttonList.append(namebutton33)
         // Do any additional setup after loading the view, typically from a nib.
     }
-    var button11 = 0
-    var button12 = 0
-    var button13 = 0
-    var button21 = 0
-    var button22 = 0
-    var button23 = 0
-    var button31 = 0
-    var button32 = 0
-    var button33 = 0
+    
+    var buttonList : [UIButton] =  []
+    
+    var buttons = [Int](count: 9, repeatedValue: 0)
     var spieler = 1
-    var reihe = 0
+    var reihe = 0 // 0 oder 1
     var punkte1 = 0
     var punkte2 = 0
     var remis = 0
@@ -46,93 +50,85 @@ class ViewController: UIViewController {
     @IBOutlet weak var namebutton33: UIButton!
     
     @IBAction func button11(sender: UIButton) {
-        button11 = tapped(button11, name: namebutton11)
+        buttons[0] = tapped(buttons[0], name: buttonList[0])
         sieg()
     }
     
     @IBAction func button12(sender: UIButton) {
-        button12 = tapped(button12, name: namebutton12)
+        buttons[1] = tapped(buttons[1], name: buttonList[1])
         sieg()
     }
     
     @IBAction func button13(sender: UIButton) {
-        button13 = tapped(button13, name: namebutton13)
+        buttons[2] = tapped(buttons[2], name: buttonList[2])
         sieg()
     }
     
     @IBAction func button21(sender: UIButton) {
-        button21 = tapped(button21, name: namebutton21)
+        buttons[3] = tapped(buttons[3], name: buttonList[3])
         sieg()
     }
     
     @IBAction func button22(sender: UIButton) {
-        button22 = tapped(button22, name: namebutton22)
+        buttons[4] = tapped(buttons[4], name: buttonList[4])
         sieg()
     }
     
     @IBAction func button23(sender: UIButton) {
-        button23 = tapped(button23, name: namebutton23)
+        buttons[5] = tapped(buttons[5], name: buttonList[5])
         sieg()
     }
     
     @IBAction func button31(sender: UIButton) {
-        button31 = tapped(button31, name: namebutton31)
+        buttons[6] = tapped(buttons[6], name: buttonList[6])
         sieg()
     }
     
     @IBAction func button32(sender: UIButton) {
-        button32 = tapped(button32, name: namebutton32)
+        buttons[7] = tapped(buttons[7], name: buttonList[7])
         sieg()
     }
     
     @IBAction func button33(sender: UIButton) {
-        button33 = tapped(button33, name: namebutton33)
+        buttons[8] = tapped(buttons[8], name: buttonList[8])
         sieg()
     }
     
     func sieg() {
-        if button11 == button12 && button11 == button13 && button11 != 0 {
-            namebutton11.backgroundColor = UIColor.orangeColor()
-            namebutton12.backgroundColor = UIColor.orangeColor()
-            namebutton13.backgroundColor = UIColor.orangeColor()
-            reihe = 1
-        } else if button21 == button22 && button21 == button23 && button21 != 0 {
-            namebutton21.backgroundColor = UIColor.orangeColor()
-            namebutton22.backgroundColor = UIColor.orangeColor()
-            namebutton23.backgroundColor = UIColor.orangeColor()
-            reihe = 2
-        } else if button31 == button32 && button31 == button33 && button31 != 0 {
-            namebutton31.backgroundColor = UIColor.orangeColor()
-            namebutton32.backgroundColor = UIColor.orangeColor()
-            namebutton33.backgroundColor = UIColor.orangeColor()
-            reihe = 3
-        } else if button11 == button21 && button11 == button31 && button11 != 0 {
-            namebutton11.backgroundColor = UIColor.orangeColor()
-            namebutton21.backgroundColor = UIColor.orangeColor()
-            namebutton31.backgroundColor = UIColor.orangeColor()
-            reihe = 4
-        } else if button12 == button22 && button12 == button32 && button12 != 0 {
-            namebutton12.backgroundColor = UIColor.orangeColor()
-            namebutton22.backgroundColor = UIColor.orangeColor()
-            namebutton32.backgroundColor = UIColor.orangeColor()
-            reihe = 5
-        } else if button13 == button23 && button13 == button33 && button13 != 0 {
-            namebutton13.backgroundColor = UIColor.orangeColor()
-            namebutton23.backgroundColor = UIColor.orangeColor()
-            namebutton33.backgroundColor = UIColor.orangeColor()
-            reihe = 6
-        } else if button11 == button22 && button11 == button33 && button11 != 0 {
-            namebutton11.backgroundColor = UIColor.orangeColor()
-            namebutton22.backgroundColor = UIColor.orangeColor()
-            namebutton33.backgroundColor = UIColor.orangeColor()
-            reihe = 7
-        } else if button13 == button22 && button13 == button31 && button13 != 0 {
-            namebutton13.backgroundColor = UIColor.orangeColor()
-            namebutton22.backgroundColor = UIColor.orangeColor()
-            namebutton31.backgroundColor = UIColor.orangeColor()
-            reihe = 8
+        //horizontally
+        for i in 0...2 {
+            if buttons[0+3*i] == buttons[1+3*i] && buttons[0+3*i] == buttons[2+3*i] && buttons[0+3*i] != 0 {
+                for j in 0...2 {
+                    buttonList[3*i+j].backgroundColor = UIColor.orangeColor()
+                    reihe = 1
+                }
+            }
         }
-        if button11 != 0 && button12 != 0 && button13 != 0 && button21 != 0 && button22 != 0 && button23 != 0 && button31 != 0 && button32 != 0 && button33 != 0 {
+        
+        //vertically
+        for i in 0...2 {
+            if buttons[i] == buttons[i+3] && buttons[i] == buttons[i+6] && buttons[i] != 0 {
+                for j in 0...2 {
+                    buttonList[i+3*j].backgroundColor = UIColor.orangeColor()
+                    reihe = 1
+                }
+            }
+        }
+        
+        //diagonally
+        if buttons[0] == buttons[4] && buttons[0] == buttons[8] && buttons[0] != 0 {
+            buttonList[0].backgroundColor = UIColor.orangeColor()
+            buttonList[4].backgroundColor = UIColor.orangeColor()
+            buttonList[8].backgroundColor = UIColor.orangeColor()
+            reihe = 1
+        } else if buttons[2] == buttons[4] && buttons[2] == buttons[6] && buttons[2] != 0 {
+            buttonList[2].backgroundColor = UIColor.orangeColor()
+            buttonList[4].backgroundColor = UIColor.orangeColor()
+            buttonList[6].backgroundColor = UIColor.orangeColor()
+            reihe = 1
+        }
+        
+        if buttons[0] != 0 && buttons[1] != 0 && buttons[2] != 0 && buttons[3] != 0 && buttons[4] != 0 && buttons[5] != 0 && buttons[6] != 0 && buttons[7] != 0 && buttons[8] != 0 {
             remis += 1
             gesamt = remis + punkte1 + punkte2
             labelTop.text = "Unentschieden! Schon insgesamt \(remis) mal. Und das auf \(gesamt) Partien!"
@@ -155,17 +151,12 @@ class ViewController: UIViewController {
         }
     }
     
-    func neustart() {
+    func restart() {
         spielende = false
-        button11 = 0
-        button12 = 0
-        button13 = 0
-        button21 = 0
-        button22 = 0
-        button23 = 0
-        button31 = 0
-        button32 = 0
-        button33 = 0
+        for i in 0 ..< buttons.count {
+            buttons[i] = 0
+        }
+        
         reihe = 0
         runde += 1
         if runde%2 == 0 {
@@ -175,21 +166,16 @@ class ViewController: UIViewController {
             spieler = 1
             labelTop.text = "Spieler 1 beginnt diese Runde"
         }
-        namebutton11.setBackgroundImage(UIImage(named: "default.png"), forState: UIControlState.Normal)
-        namebutton12.setBackgroundImage(UIImage(named: "default.png"), forState: UIControlState.Normal)
-        namebutton13.setBackgroundImage(UIImage(named: "default.png"), forState: UIControlState.Normal)
-        namebutton21.setBackgroundImage(UIImage(named: "default.png"), forState: UIControlState.Normal)
-        namebutton22.setBackgroundImage(UIImage(named: "default.png"), forState: UIControlState.Normal)
-        namebutton23.setBackgroundImage(UIImage(named: "default.png"), forState: UIControlState.Normal)
-        namebutton31.setBackgroundImage(UIImage(named: "default.png"), forState: UIControlState.Normal)
-        namebutton32.setBackgroundImage(UIImage(named: "default.png"), forState: UIControlState.Normal)
-        namebutton33.setBackgroundImage(UIImage(named: "default.png"), forState: UIControlState.Normal)
+        
+        for i in 0..<buttonList.count {
+            buttonList[i].setBackgroundImage(UIImage(named: "default.png"), forState: UIControlState.Normal)
+        }
         
         goOn()
     }
     
     func someSelector() {
-        neustart()
+        restart()
     }
     
     func tapped(button: Int, name: UIButton) -> Int {
@@ -210,28 +196,14 @@ class ViewController: UIViewController {
     }
     
     func pause() {
-        namebutton11.userInteractionEnabled = false
-        namebutton12.userInteractionEnabled = false
-        namebutton13.userInteractionEnabled = false
-        namebutton21.userInteractionEnabled = false
-        namebutton22.userInteractionEnabled = false
-        namebutton23.userInteractionEnabled = false
-        namebutton31.userInteractionEnabled = false
-        namebutton32.userInteractionEnabled = false
-        namebutton33.userInteractionEnabled = false
+        for i in 0..<buttonList.count {
+            buttonList[i].userInteractionEnabled = false
+        }
     }
     
     func goOn() {
-        namebutton11.userInteractionEnabled = true
-        namebutton12.userInteractionEnabled = true
-        namebutton13.userInteractionEnabled = true
-        namebutton21.userInteractionEnabled = true
-        namebutton22.userInteractionEnabled = true
-        namebutton23.userInteractionEnabled = true
-        namebutton31.userInteractionEnabled = true
-        namebutton32.userInteractionEnabled = true
-        namebutton33.userInteractionEnabled = true
+        for i in 0..<buttonList.count {
+            buttonList[i].userInteractionEnabled = true
+        }
     }
 }
-
-
