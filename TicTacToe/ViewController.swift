@@ -32,7 +32,9 @@ class ViewController: UIViewController {
     var gesamt = 0
     var spielende = false
     var runde = 1
+    var field = 0
 
+    @IBOutlet weak var labelTop: UILabel!
     @IBOutlet weak var namebutton11: UIButton!
     @IBOutlet weak var namebutton12: UIButton!
     @IBOutlet weak var namebutton13: UIButton!
@@ -42,174 +44,52 @@ class ViewController: UIViewController {
     @IBOutlet weak var namebutton31: UIButton!
     @IBOutlet weak var namebutton32: UIButton!
     @IBOutlet weak var namebutton33: UIButton!
+    
     @IBAction func button11(sender: UIButton) {
-        if button11 == 0 && spielende == false {
-            if spieler == 1 {
-                namebutton11.setTitle("X", forState: UIControlState.Normal)
-                namebutton11.backgroundColor = UIColor.redColor()
-                button11 = 1
-                spieler = 2
-            } else {
-                namebutton11.setTitle("O", forState: UIControlState.Normal)
-                namebutton11.backgroundColor = UIColor.greenColor()
-                button11 = 2
-                spieler = 1
-            }
-            sieg()
-        }
+        button11 = tapped(button11, name: namebutton11)
+        sieg()
     }
     
     @IBAction func button12(sender: UIButton) {
-        if button12 == 0 && spielende == false {
-            if spieler == 1 {
-                namebutton12.setTitle("X", forState: UIControlState.Normal)
-                namebutton12.backgroundColor = UIColor.redColor()
-                button12 = 1
-                spieler = 2
-            } else {
-                namebutton12.setTitle("O", forState: UIControlState.Normal)
-                namebutton12.backgroundColor = UIColor.greenColor()
-                button12 = 2
-                spieler = 1
-            }
-            sieg()
-        }
-
-
+        button12 = tapped(button12, name: namebutton12)
+        sieg()
     }
     
     @IBAction func button13(sender: UIButton) {
-        if button13 == 0 && spielende == false {
-            if spieler == 1 {
-                namebutton13.setTitle("X", forState: UIControlState.Normal)
-                namebutton13.backgroundColor = UIColor.redColor()
-                button13 = 1
-                spieler = 2
-            } else {
-                namebutton13.setTitle("O", forState: UIControlState.Normal)
-                namebutton13.backgroundColor = UIColor.greenColor()
-                button13 = 2
-                spieler = 1
-            }
-            sieg()
-        }
-
-
+        button13 = tapped(button13, name: namebutton13)
+        sieg()
     }
     
     @IBAction func button21(sender: UIButton) {
-        if button21 == 0 && spielende == false {
-            if spieler == 1 {
-                namebutton21.setTitle("X", forState: UIControlState.Normal)
-                namebutton21.backgroundColor = UIColor.redColor()
-                button21 = 1
-                spieler = 2
-            } else {
-                namebutton21.setTitle("O", forState: UIControlState.Normal)
-                namebutton21.backgroundColor = UIColor.greenColor()
-                button21 = 2
-                spieler = 1
-            }
-            sieg()
-        }
-
-
+        button21 = tapped(button21, name: namebutton21)
+        sieg()
     }
     
     @IBAction func button22(sender: UIButton) {
-        if button22 == 0 && spielende == false {
-            if spieler == 1 {
-                namebutton22.setTitle("X", forState: UIControlState.Normal)
-                namebutton22.backgroundColor = UIColor.redColor()
-                button22 = 1
-                spieler = 2
-            } else {
-                namebutton22.setTitle("O", forState: UIControlState.Normal)
-                namebutton22.backgroundColor = UIColor.greenColor()
-                button22 = 2
-                spieler = 1
-            }
-            sieg()
-        }
-
-
+        button22 = tapped(button22, name: namebutton22)
+        sieg()
     }
     
     @IBAction func button23(sender: UIButton) {
-        if button23 == 0 && spielende == false {
-            if spieler == 1 {
-                namebutton23.setTitle("X", forState: UIControlState.Normal)
-                namebutton23.backgroundColor = UIColor.redColor()
-                button23 = 1
-                spieler = 2
-            } else {
-                namebutton23.setTitle("O", forState: UIControlState.Normal)
-                namebutton23.backgroundColor = UIColor.greenColor()
-                button23 = 2
-                spieler = 1
-            }
-            sieg()
-        }
-
-
+        button23 = tapped(button23, name: namebutton23)
+        sieg()
     }
     
     @IBAction func button31(sender: UIButton) {
-        if button31 == 0 && spielende == false {
-            if spieler == 1 {
-                namebutton31.setTitle("X", forState: UIControlState.Normal)
-                namebutton31.backgroundColor = UIColor.redColor()
-                button31 = 1
-                spieler = 2
-            } else {
-                namebutton31.setTitle("O", forState: UIControlState.Normal)
-                namebutton31.backgroundColor = UIColor.greenColor()
-                button31 = 2
-                spieler = 1
-            }
-            sieg()
-        }
-
-
+        button31 = tapped(button31, name: namebutton31)
+        sieg()
     }
     
     @IBAction func button32(sender: UIButton) {
-        if button32 == 0 && spielende == false {
-            if spieler == 1 {
-                namebutton32.setTitle("X", forState: UIControlState.Normal)
-                namebutton32.backgroundColor = UIColor.redColor()
-                button32 = 1
-                spieler = 2
-            } else {
-                namebutton32.setTitle("O", forState: UIControlState.Normal)
-                namebutton32.backgroundColor = UIColor.greenColor()
-                button32 = 2
-                spieler = 1
-            }
-            sieg()
-        }
-
-
+        button32 = tapped(button32, name: namebutton32)
+        sieg()
     }
     
     @IBAction func button33(sender: UIButton) {
-        if button33 == 0 && spielende == false {
-            if spieler == 1 {
-                namebutton33.setTitle("X", forState: UIControlState.Normal)
-                namebutton33.backgroundColor = UIColor.redColor()
-                button33 = 1
-                spieler = 2
-            } else {
-                namebutton33.setTitle("O", forState: UIControlState.Normal)
-                namebutton33.backgroundColor = UIColor.greenColor()
-                button33 = 2
-                spieler = 1
-            }
-                sieg()
-        }
-
-
+        button33 = tapped(button33, name: namebutton33)
+        sieg()
     }
+    
     func sieg() {
         if button11 == button12 && button11 == button13 && button11 != 0 {
             namebutton11.backgroundColor = UIColor.orangeColor()
@@ -255,24 +135,23 @@ class ViewController: UIViewController {
         if button11 != 0 && button12 != 0 && button13 != 0 && button21 != 0 && button22 != 0 && button23 != 0 && button31 != 0 && button32 != 0 && button33 != 0 {
             remis += 1
             gesamt = remis + punkte1 + punkte2
-            print("Unentschieden! Schon insgesamt \(remis) mal. Und das auf \(gesamt) Partien!")
+            labelTop.text = "Unentschieden! Schon insgesamt \(remis) mal. Und das auf \(gesamt) Partien!"
+            pause()
             _ = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: #selector(ViewController.someSelector), userInfo: nil, repeats: false)
         }
         if reihe != 0 {
             if spieler == 1 {
-                print("Spieler 2 hat gewonnen!")
                 punkte2 += 1
-                print("Es steht \(punkte1) zu \(punkte2)")
+                labelTop.text = "Spieler 2 hat gewonnen!\nEs steht \(punkte1) zu \(punkte2)"
                 spielende = true
             } else {
-                print("Spieler 1 hat gewonnen!")
                 punkte1 += 1
-                print("Es steht \(punkte1) zu \(punkte2)")
+                labelTop.text = "Spieler 1 hat gewonnen!\nEs steht \(punkte1) zu \(punkte2)"
                 spielende = true
             }
+            pause()
             _ = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: #selector(ViewController.someSelector), userInfo: nil, repeats: false)
-            
-            
+            //function doesn't care about the timer and is starting the new game immediately
         }
     }
     
@@ -291,38 +170,68 @@ class ViewController: UIViewController {
         runde += 1
         if runde%2 == 0 {
             spieler = 2
-            print("Spieler 2 beginnt diese Runde")
+            labelTop.text = "Spieler 2 beginnt diese Runde"
         } else {
             spieler = 1
-            print("Spieler 1 beginnt diese Runde")
+            labelTop.text = "Spieler 1 beginnt diese Runde"
         }
-        namebutton11.setTitle("", forState: UIControlState.Normal)
-        namebutton11.backgroundColor = UIColor.purpleColor()
-        namebutton12.setTitle("", forState: UIControlState.Normal)
-        namebutton12.backgroundColor = UIColor.purpleColor()
-        namebutton13.setTitle("", forState: UIControlState.Normal)
-        namebutton13.backgroundColor = UIColor.purpleColor()
-        namebutton21.setTitle("", forState: UIControlState.Normal)
-        namebutton21.backgroundColor = UIColor.purpleColor()
-        namebutton22.setTitle("", forState: UIControlState.Normal)
-        namebutton22.backgroundColor = UIColor.purpleColor()
-        namebutton23.setTitle("", forState: UIControlState.Normal)
-        namebutton23.backgroundColor = UIColor.purpleColor()
-        namebutton31.setTitle("", forState: UIControlState.Normal)
-        namebutton31.backgroundColor = UIColor.purpleColor()
-        namebutton32.setTitle("", forState: UIControlState.Normal)
-        namebutton32.backgroundColor = UIColor.purpleColor()
-        namebutton33.setTitle("", forState: UIControlState.Normal)
-        namebutton33.backgroundColor = UIColor.purpleColor()
+        namebutton11.setBackgroundImage(UIImage(named: "default.png"), forState: UIControlState.Normal)
+        namebutton12.setBackgroundImage(UIImage(named: "default.png"), forState: UIControlState.Normal)
+        namebutton13.setBackgroundImage(UIImage(named: "default.png"), forState: UIControlState.Normal)
+        namebutton21.setBackgroundImage(UIImage(named: "default.png"), forState: UIControlState.Normal)
+        namebutton22.setBackgroundImage(UIImage(named: "default.png"), forState: UIControlState.Normal)
+        namebutton23.setBackgroundImage(UIImage(named: "default.png"), forState: UIControlState.Normal)
+        namebutton31.setBackgroundImage(UIImage(named: "default.png"), forState: UIControlState.Normal)
+        namebutton32.setBackgroundImage(UIImage(named: "default.png"), forState: UIControlState.Normal)
+        namebutton33.setBackgroundImage(UIImage(named: "default.png"), forState: UIControlState.Normal)
+        
+        goOn()
     }
+    
     func someSelector() {
         neustart()
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func tapped(button: Int, name: UIButton) -> Int {
+        name.userInteractionEnabled = false
+        field = button
+        if button == 0 && spielende == false {
+            if spieler == 1 {
+                name.setBackgroundImage(UIImage(named: "cross.png"), forState: UIControlState.Normal)
+                field = 1
+                spieler = 2
+            } else {
+                name.setBackgroundImage(UIImage(named: "ring.png"), forState: UIControlState.Normal)
+                field = 2
+                spieler = 1
+            }
+        }
+        return field
     }
-
-
+    
+    func pause() {
+        namebutton11.userInteractionEnabled = false
+        namebutton12.userInteractionEnabled = false
+        namebutton13.userInteractionEnabled = false
+        namebutton21.userInteractionEnabled = false
+        namebutton22.userInteractionEnabled = false
+        namebutton23.userInteractionEnabled = false
+        namebutton31.userInteractionEnabled = false
+        namebutton32.userInteractionEnabled = false
+        namebutton33.userInteractionEnabled = false
+    }
+    
+    func goOn() {
+        namebutton11.userInteractionEnabled = true
+        namebutton12.userInteractionEnabled = true
+        namebutton13.userInteractionEnabled = true
+        namebutton21.userInteractionEnabled = true
+        namebutton22.userInteractionEnabled = true
+        namebutton23.userInteractionEnabled = true
+        namebutton31.userInteractionEnabled = true
+        namebutton32.userInteractionEnabled = true
+        namebutton33.userInteractionEnabled = true
+    }
 }
+
 
